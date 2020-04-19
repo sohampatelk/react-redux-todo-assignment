@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { RootState } from "../store/index";
 import { removeTaskFromList, addTaskToList } from "../store/todo/action";
 import { Task } from "../store/todo/types";
-import { Grid, Form, Input, Button, Icon } from "semantic-ui-react";
+import { Grid, Form, Input, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 export interface ITodoListProps {
@@ -47,25 +47,23 @@ export class TodoList extends Component<ITodoListProps> {
         <Grid.Row>
           <Form onSubmit={this.addTask}>
             <Form.Field>
-              <label htmlFor="todolist-input">Enter new Task into List</label>
-              <Input name="todolist-input" type="text" />
+              <label htmlFor="todolist-input">Enter New Task into Todo-List</label>
+              <Input name="todolist-input" type="text" placeholder="Enter to do task"/>
             </Form.Field>
             <Input type="submit" value="Add" />
           </Form>
         </Grid.Row>
-        <h3>To-Do List</h3>
+        <h3>To-Do Task List</h3>
         <Grid.Row>
           <ul>
             {this.props.todoList.map((element) => (
               <li>
                 {element.taskDetail}
                 <Button 
-                  size="mini"
-                  color="red"
+                  size="mini" color="red"
                   onClick={(event) => this.deleteTask(element.id)}
-                >X
-                </Button>
-              </li>
+                >X</Button>
+              </li>  
             ))}
           </ul>
         </Grid.Row>
