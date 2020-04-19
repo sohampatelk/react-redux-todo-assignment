@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { RootState } from "../store/index";
 import { removeTaskFromList, addTaskToList } from "../store/todo/action";
 import { Task } from "../store/todo/types";
-import { Grid, Form, Input, Button } from "semantic-ui-react";
+import { Grid, Form, Input, Button, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 export interface ITodoListProps {
@@ -59,12 +59,11 @@ export class TodoList extends Component<ITodoListProps> {
             {this.props.todoList.map((element) => (
               <li>
                 {element.taskDetail}
-                <Button
+                <Button 
                   size="mini"
                   color="red"
                   onClick={(event) => this.deleteTask(element.id)}
-                >
-                  &times;
+                >X
                 </Button>
               </li>
             ))}
